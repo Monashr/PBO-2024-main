@@ -1,26 +1,13 @@
 # Class, Object, Method, Package, dan Constructor
 
-Object Oriented Programming (OOP) adalah paradigma pemrograman yang dikembangkan untuk mengatasi kelemahan dari pemrograman prosedural yang membuat program menjadi kompleks dan terkesan *unnecessary*. Dalam OOP, setiap masalah dipandang sebagai objek, bukan prosedur. Beberapa bahasa pemrograman yang menggunakan OOP adalah C++, C#, dan Java.
+```
+Procedural code (code using data structures) makes it easy to add new functions without changing the existing data structures. OO code, on the other hand, makes it easy to add new classes without changing existing functions.
 
-Beberapa fitur OOP:
+The complement is also true:
+Procedural code makes it hard to add new data structures because all the functions must change. OO code makes it hard to add new functions because all the classes must change
 
-1. Fokus pada data, bukan prosedur.
-2. Program dipecah menjadi objek.
-3. Data dilindungi dari non-member function.
-4. Objek berkomunikasi melalui method.
-5. OOP menggunakan pendekatan bottom-up.
-
-Beberapa perbedaan dari *object oriented* dengan *procedural*
-   
-
-| Procedural | Object |
-| -----------------------------     | ------------------------- | 
-| top-down approach.                | bottom-up approach.       | 
-| Data is not secured               | Data is secured           | 
-| It does not model real world entities. | It models real world entities. 
-| Programs are decomposed into functions or procedures | Programs are decomposed into objects | 
-
-
+                            -Robert C Martin
+```
 
 ## Class
 Class adalah *user-defined data type* dan merupakan *fundamental building block* dalam pemrograman berorientasi objek yang berfungsi  sebagai *template/blueprint* yang nantinya akan digunakan untuk menginstansiasi sebuah *object*.
