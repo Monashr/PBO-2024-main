@@ -43,7 +43,7 @@ public class Student {
     private int age;
     
     // Constructor
-    public Customer(String name, String dateOfBirth, int age) {
+    public Student(String name, String dateOfBirth, int age) {
         this.name = name;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
