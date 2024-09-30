@@ -446,6 +446,77 @@ Animal: Whiskers
 Total number of animals: 3
 ```
 
+
+## Template Method Design Pattern
+Template Method Design Pattern adalah salah satu pola desain yang menggunakan konsep pewarisan (inheritance). Pola template method membuat kerangka dasar (skeleton) dari suatu algoritma di base class, tetapi memberikan keleluasaan kepada kelas turunan (subclass) untuk mengubah atau mengimplementasikan langkah-langkah spesifik dari algoritma tanpa mengubah keseluruhan strukturnya.
+
+### Konsep Utama
+    Base Class: Mengandung template method, yaitu method yang menyediakan kerangka algoritma. Beberapa langkah diimplementasikan di class ini, sementara langkah-langkah lainnya didefinisikan sebagai metode abstrak atau virtual yang harus diimplementasikan di kelas turunan.
+
+    Subclass: Mengimplementasikan atau meng-override langkah-langkah spesifik dari algoritma sesuai kebutuhan.
+
+### Contoh Skenario
+
+
+```java
+abstract class Game {
+    // Template method
+    public final void play() {
+        initialize();
+        startPlay();
+        endPlay();
+    }
+
+    abstract void initialize();
+    abstract void startPlay();
+    abstract void endPlay();
+}
+
+class Football extends Game {
+    @Override
+    void initialize() {
+        System.out.println("Football Game Initialized.");
+    }
+
+    @Override
+    void startPlay() {
+        System.out.println("Football Game Started.");
+    }
+
+    @Override
+    void endPlay() {
+        System.out.println("Football Game Finished.");
+    }
+}
+
+class Cricket extends Game {
+    @Override
+    void initialize() {
+        System.out.println("Cricket Game Initialized.");
+    }
+
+    @Override
+    void startPlay() {
+        System.out.println("Cricket Game Started.");
+    }
+
+    @Override
+    void endPlay() {
+        System.out.println("Cricket Game Finished.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Game game = new Football();
+        game.play();
+
+        game = new Cricket();
+        game.play();
+    }
+}
+```
+
 # Bacaan
 
 - [Inheritance](https://www.w3schools.com/java/java_inheritance.asp)
