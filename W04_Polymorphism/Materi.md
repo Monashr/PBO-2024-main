@@ -520,6 +520,109 @@ public class Main {
 - Dalam contoh ini, kita memiliki kelas `MathOperation` dengan metode penambahan yang berbeda untuk tipe data int dan double.
 - Melalui metode polimorfik, kita dapat menambahkan angka dengan metode generik tanpa mempedulikan jenis data yang spesifik.
 
+
+
+
+## Factory Design Pattern
+
+Factory Pattern adalah *creational design pattern* yang menyediakan interface untuk membuat objek dalam superclass, namun memungkinkan subclass untuk menentukan jenis objek yang akan dibuat. Design pattern membantu dalam proses pembuatan objek tanpa mengekspos logika pembuatannya di client-side.
+
+Konsep Utama
+
+    Product: Objek yang akan dibuat, yang memiliki interface atau superclass.
+
+    Concrete Product: Objek yang sebenarnya dibuat, yang mewarisi dari antarmuka atau superclass.
+
+    Factory: Sebuah kelas yang bertanggung jawab untuk membuat objek, biasanya diimplementasikan dengan metode yang mereturn instance baru dari produk konkret.
+
+### Tujuan Utama
+
+    Memisahkan proses pembuatan objek dari kode client.
+    Memastikan bahwa client-side tidak perlu mengetahui kelas spesifik yang sedang mereka gunakan.
+
+### Contoh Skenario
+
+Mari kita lihat skenario di mana sebuah sistem membuat berbagai jenis notifikasi (misalnya, email, SMS, dan push notification). Daripada klien membuat notifikasi ini secara langsung, kita menggunakan factory untuk mengenkapsulasi logika pembuatannya.
+
+### Contoh Product
+```java
+// Product interface
+interface Notification {
+    void notifyUser();
+}
+
+// Concrete Product classes
+
+class EmailNotification implements Notification {
+    @Override
+    public void notifyUser() {
+        System.out.println("Sending an email notification");
+    }
+}
+
+class SMSNotification implements Notification {
+    @Override
+    public void notifyUser() {
+        System.out.println("Sending an SMS notification");
+    }
+}
+
+class PushNotification implements Notification {
+    @Override
+    public void notifyUser() {
+        System.out.println("Sending a push notification");
+    }
+}
+```
+
+### Contoh Factory
+```java
+// Factory class
+class NotificationFactory {
+    public Notification createNotification(String type) {
+        if (type == null || type.isEmpty()) {
+            return null;
+        }
+        switch (type) {
+            case "SMS":
+                return new SMSNotification();
+            case "Email":
+                return new EmailNotification();
+            case "Push":
+                return new PushNotification();
+            default:
+                return null;
+        }
+    }
+}
+```
+
+### Penggunaan Pada Client-Code
+```java
+// Client code
+public class FactoryPatternDemo {
+    public static void main(String[] args) {
+        NotificationFactory factory = new NotificationFactory();
+
+        Notification notification = factory.createNotification("Email");
+        if (notification != null) {
+            notification.notifyUser();
+        }
+        
+        notification = factory.createNotification("SMS");
+        if (notification != null) {
+            notification.notifyUser();
+        }
+        
+        notification = factory.createNotification("Push");
+        if (notification != null) {
+            notification.notifyUser();
+        }
+    }
+}
+```
+
+
 ## Bacaan Lebih Lanjut
 
 Untuk mendalami konsep polymorphism dan konsep lain dalam pemrograman berorientasi objek, silakan merujuk pada sumber-sumber berikut:
