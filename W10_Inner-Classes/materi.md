@@ -95,7 +95,7 @@ public class Main {
 
 Berbeda dengan kelas "biasa", sebuah inner class dapat memiliki modifier akses seperti private atau protected. Jika Anda tidak ingin objek lain di luar kelas mengakses inner class, Anda bisa mendeklarasikan kelas tersebut sebagai private.
 
-Dengan cara ini, inner class hanya bisa diakses di dalam kelas tempat kelas tersebut didefinisikan, sehingga membatasi aksesnya dari luar. Ini membantu menjaga enkapsulasi dan membatasi penggunaan kelas tersebut hanya untuk kebutuhan internal.
+Dengan cara ini, inner class hanya bisa diakses di dalam kelas tempat kelas tersebut didefinisikan, sehingga membatasi aksesnya dari luar. Ini membantu menjaga enkapsulasi dan membatasi penggunaan kelas tersebut hanya untuk kebutuhan internal. Contoh Regular Private Inner Class:
 
 ```java
 class OuterClass {
@@ -122,10 +122,11 @@ Main.java:13: error: OuterClass.InnerClass has private access in OuterClass
     OuterClass.InnerClass myInner = myOuter.new InnerClass();
               ^
 ```
+Error terjadi karena InnerClass dideklarasikan sebagai private di dalam OuterClass, yang berarti hanya dapat diakses dari dalam OuterClass itu sendiri. Ketika mencoba mengakses InnerClass dari kelas luar (Main), akses tersebut tidak diperbolehkan karena sifat private-nya, yang menyebabkan error "private access" saat mencoba membuat objek dari InnerClass.
 
 ### Static Inner Class
 
-Sebuah inner class juga dapat bersifat static, yang berarti Anda dapat mengaksesnya tanpa perlu membuat objek dari kelas luar.
+Static inner class adalah kelas yang ada di dalam kelas lain, tetapi tidak memerlukan objek dari kelas luar untuk menggunakannya. Artinya, meskipun InnerClass berada di dalam OuterClass, dapat langsung membuat objek InnerClass tanpa harus membuat objek OuterClass terlebih dahulu. Ini berbeda dengan inner class biasa yang harus menggunakan objek dari kelas luar untuk bisa diakses. Jadi, dengan static inner class, hubungan antara kelas luar dan kelas dalam menjadi lebih lepas dan tidak saling bergantung.
 
 ```java
 class OuterClass {
@@ -196,3 +197,14 @@ public class OuterClass {
     }
 }
 ```
+
+## Kapan Menggunakan Inner Class?
+
+1. Jika Kelas Hanya Digunakan di Dalam Kelas Lain: Gunakan inner class jika kelas hanya perlu digunakan di dalam kelas luar, bukan di luar kelas.
+   Contoh: Kelas Engine yang hanya dipakai dalam kelas Car.
+2. Jika Perlu Mengakses Data dari Kelas Luar: Inner class bisa mengakses data atau metode di kelas luar, termasuk yang bersifat private.
+   Contoh: Kelas Book yang mengakses daftar buku dalam kelas Library.
+3. Untuk Kelas yang Hanya Digunakan Sementara: Gunakan anonymous inner class untuk tugas-tugas cepat seperti klik tombol.
+   Contoh: Menangani klik tombol dengan cara langsung di dalam kode.
+4. Untuk Mengelompokkan Kode yang Berkaitan: Gunakan inner class untuk mengelompokkan kode yang saling berhubungan dalam satu kelas.
+   Contoh: Kelas Item dalam kelas Order untuk menyimpan informasi item.
