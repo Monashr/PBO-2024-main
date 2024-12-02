@@ -206,7 +206,7 @@ public class ThreadPriorityExample {
 
    Metode yang digunakan untuk mendapatkan referensi ke thread saat ini yang sedang dieksekusi.
    ```java
-   Thread.yield();
+   Thread.currentThread();
    ```
 
 ## Keuntungan MultiThreading
