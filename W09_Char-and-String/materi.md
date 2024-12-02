@@ -1,9 +1,9 @@
-# 5.1 Character Class
+# Character Class
 
 Character (char) adalah salah satu type data primitive yang umum terdapat di berbagai macam bahasa pemrograman salah satunya adalah Java. Char hanya dapat menyimpan satu Unicode Character pada satu waktu. Kita bisa melakukan assign dengan cara yang sama ke karakter lainnya baik berupa huruf kecil, huruf kapital, angka, ataupun karakter khusus. Sebagai upaya untuk mencegah permasalahan pada proses pembacaan karakter yang bisa mengakibatkan perbedaan karakter, maka perusahaan komputer di US membuat suatu skema coding yang bernama ASCII (American Standard Code for Information Interchange). Table ASCII dapat dilihat pada gambar berikut.
 ![Table ASCII](ascii.png)
 
-## 5.1.1 Char Declaration
+## Char Declaration
 Character dideklarasikan dengan menggunakan single quotes('').
 
 Contoh penggunaan :
@@ -14,7 +14,7 @@ char ch = 'a';
 // Unicode for uppercase Greek omega character
 char uniChar = '\u039A';
 ```
-## 5.1.2 Escape Sequence
+## Escape Sequence
 Karakter yang diawali dengan garis miring terbalik `\` merupakan escape sequence dan memiliki arti khusus bagi kompiler. Dengan menggunakan Escape Sequence ini, Anda dapat memasukkan karakter-karakter ini ke dalam teks Anda tanpa mengganggu penafsiran atau pemformatan teks yang salah.
 
 Karakter baris baru `\n` telah sering digunakan dalam pernyataan System.out.println() untuk melanjutkan ke baris berikutnya setelah string dicetak.
@@ -30,11 +30,11 @@ Escape Sequence          | Deskripsi
 `\"`    | Menyisipkan karakter tanda kutip ganda (double quote) pada teks di titik ini. Ini digunakan saat Anda ingin mencetak tanda kutip ganda dalam teks yang diapit oleh tanda kutip ganda.
 `\\` |  Menyisipkan karakter backslash pada teks di titik ini. Ini digunakan saat Anda ingin mencetak karakter backslash dalam teks.
 
-# 5.2 String Class
+# String Class
 
 String merupakan sebuah nilai tunggal yang berisikan kumpulan dari character.
 
-## 5.2.1 String Declaration
+## String Declaration
 String di deklarasikan dengan menggunakan double quotes("").
 
 Contoh penggunaan :
@@ -49,7 +49,7 @@ Contoh penggunaan :
 String anotherString = new String("Hello");
 
 ```
-## 5.2.2 String Concatenation
+## String Concatenation
 Di Java dapat menggabungkan/mengkonket 2 buah string dengan menggunakan operator `+`.
 Contoh penggunaan :
 ```java
@@ -113,7 +113,7 @@ System.out.println(result); // Output: "hello World!"
 ```
 `StringBuffer`, meskipun sedikit lebih lambat dalam penggunaan tunggal, berguna dalam lingkungan `multithread` karena bersifat thread-safe, sehingga dapat digunakan secara aman dalam konteks bersamaan oleh beberapa thread.
 
-## 5.2.3 String Method
+## String Method
 Di bahasa pemrograman Java terdapat beberapa build-in method pada String Class yang dapat membantu kita dalam memproses informasi dari String.
 Berikut beberapa contoh String Method :
 ### 1. CharAt()
@@ -161,7 +161,7 @@ for (String word : words) {
     System.out.println(word);
 }
 ```
-## 5.3 Regular Expression
+## Regular Expression
 Ekspresi Reguler (Regular Expression), sering disingkat sebagai regex atau regexp, adalah alat yang kuat untuk pencocokan pola dan pencarian dalam string. Dalam bahasa pemrograman Java, ekspresi reguler didukung melalui build-in package `java.util.regex`. Regular Expression memungkinkan untuk mendefinisikan pola yang dapat digunakan untuk mencocokkan dan mencari teks dalam string. Ini sangat berguna untuk tugas seperti validasi data, ekstraksi teks, dan analisis sintaks.
 
 Package java.util.regex menyediakan dua kelas utama: Pattern dan Matcher. Kelas Pattern mewakili ekspresi reguler yang telah dikompilasi, sementara kelas Matcher digunakan untuk melakukan operasi pencocokan pada string input yang diberikan.
@@ -177,7 +177,7 @@ boolean cocok = pencocok.matches(); // Mengembalikan true
 
 ```
 
-## 5.3.1 Method find() pada Regular Expression
+## Method find() pada Regular Expression
 Metode `find()` dari kelas Matcher mencari kemunculan pertama pola dalam string input. Metode ini mengembalikan true jika ada pattern yang sama pada matcher dan false jika tidak ada string sesuai pattern pada matcher.
 
 Contoh penggunaan:
@@ -189,7 +189,7 @@ if (pencocok.find()) {
 }
 ```
 
-## 5.3.2 Regular Expressions Pattern
+## Regular Expressions Pattern
 Parameter pertama dari Pattern.compile() nethod adakah pola/pattern yang mendeskripsikan apa yang sedang dicari.
 
 Berikut contoh penyusunan pola yang biasa digunakan :
@@ -200,7 +200,7 @@ Bentuk Pola             | Deskripsi
 `[0-9]`	|  digunakan untuk mencocokkan satu karakter yang berada dalam rentang angka dari 0 hingga 9. Misalnya, [0-9]x akan mencocokkan string "1x", "5x", atau "9x", tetapi tidak akan mencocokkan "ax" karena "a" bukan angka dalam rentang tersebut.
 
 Braket `[ ]` diatas digunakan untuk mendefinisikan range dari charactersnya.
-### 5.3.2.1 Metacharacters
+### Metacharacters
 `Metacharacters` adalah characters yang memiliki arti tersendiri.
 
 Berikut contoh dari metacharacter yang dapat digunakan untuk pembuatan sebuah pattern:
@@ -215,7 +215,7 @@ Metacharacter             | Deskripsi
 `\b` |  Metacharacter ini digunakan untuk mencocokkan awal atau akhir dari sebuah kata. Misalnya, `\bWORD` akan mencocokkan kata yang dimulai dengan "WORD", sedangkan `WORD\b` akan mencocokkan kata yang diakhiri dengan "WORD".
 `\uxxxx` | Metacharacter ini digunakan untuk mencocokkan karakter Unicode yang ditentukan oleh nomor heksadesimal xxxx.
 
-### 5.3.2.2 Quantifiers
+### Quantifiers
 Quantifiers dalam pembuatan pola (pattern) dalam ekspresi reguler digunakan untuk mengontrol berapa kali sebuah karakter atau grup karakter tertentu harus muncul dalam string yang dicocokkan. Berikut adalah beberapa quantifier yang umum digunakan dalam ekspresi reguler:
 Quantifier           | Deskripsi 
 ---------------------------- | ------ 
